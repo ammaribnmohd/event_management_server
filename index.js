@@ -10,21 +10,14 @@ const eventRoutes = require("./src/routes/eventRoutes");
 const app = express();
 let databaseConnectPromise;
 
-
 app.use(
   cors({
-    origin(origin, callback) {
-      if (!origin || env.clientUrls.includes(origin)) {
-        callback(null, true);
-        return;
-      }
-
-      callback(new Error("Not allowed by CORS"));
-    },
+    origin: process.env.CLIENT_URL,
     methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
     credentials: true,
-  })
+  }),
 );
+
 app.use(express.json());
 app.use(morgan("dev"));
 
