@@ -4,5 +4,12 @@
       "source": "/(.*)",
       "destination": "/api/index.js"
     }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.js",
+      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+    }
   ]
 }
