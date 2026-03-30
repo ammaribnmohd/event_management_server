@@ -10,9 +10,12 @@ const eventRoutes = require("./src/routes/eventRoutes");
 const app = express();
 let databaseConnectPromise;
 
+
 app.use(
   cors({
     origin: env.clientUrl,
+    methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
+    credentials: true,
   })
 );
 app.use(express.json());
